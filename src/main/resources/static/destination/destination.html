@@ -1,0 +1,22 @@
+<div class="container">
+
+    <h2>Destinations Index</h2>
+
+  <div class="row">
+    <div ng-repeat="dest in destinations" class="col s4">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title black-text">
+            {{dest.name}}<i class="material-icons right teal-text text-lighten-1">filter_vintage</i>
+          </span>
+          <p>{{dest.description}}</p>
+          <ul class="collapsible" data-collapsible="expandable" watch>
+            <li ng-repeat="(name,description) in getIslandsByDestination(dest)">
+                <div class="collapsible-header">{{name}}</div>
+                <div class="collapsible-body"><p>{{description}}</p></div>
+            </li>
+</ul>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,51 @@
+@blue-gray-darken-3: #37474f;
+
+html {
+  background-image: url('../img/binding_light.png');
+}
+
+.hero {
+  height:350px;
+  background-image: url("../img/stock/beach/travel2.jpg");
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  background-position-y: 530px;
+  opacity: 0.95;
+  box-shadow: 0px 5px 15px -5px;
+}
+
+.blurb {
+  background-color:whitesmoke;
+  text-align: center;
+  font-size: 2em;
+  @pad-blurb: 50px;
+  padding-top:@pad-blurb;
+  padding-bottom:@pad-blurb;
+  color: @blue-gray-darken-3;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight:300;
+
+  ul[rn-carousel] {
+    height:50px;
+    margin: 0 auto;
+  }
+  div[rn-carousel-indicators]{
+    height:10px;
+  }
+  .rn-carousel-indicator {
+    span.active {
+      color:red;
+    }
+  }
+}
+
+.card-box.row .col{
+  &.offset-s1-half {
+    margin-left: 12.5%;
+  }
+  &.extra-pad {
+    padding: 30px;
+  }
+
+}
+

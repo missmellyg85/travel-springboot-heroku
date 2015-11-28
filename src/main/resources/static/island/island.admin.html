@@ -1,0 +1,54 @@
+<div class="container">
+
+    <h2>Islands Admin</h2>
+
+  <div class="row">
+    <div class="col s12">
+      <div ng-repeat="island in islands" class="row card-panel grey lighten-3">
+        <div class="col s4">
+          <div>
+            <label for="{{island.name}}_name">Name</label>
+            <input type="text" id="{{island.name}}_name" ng-model="island.name" ng-change="islands.$save(island)" />
+          </div>
+          <div>
+            at {{getDestinationName(island.destinationKey)}}
+          </div>
+        </div>
+        <div class="col s6">
+          <label for="{{island.description}}_desc">Description</label>
+          <textarea id="{{island.description}}_desc" class="materialize-textarea" ng-model="island.description" ng-change="islands.$save(island)"></textarea>
+        </div>
+        <div class="col s2">
+          <button class="btn waves-effect waves-light" ng-click="islands.$remove(island)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="teal">
+  <div class="row card-panel grey lighten-3">
+    <form class="col s12" ng-submit="addIsland()">
+      <div class="row">
+        <div class="col s5">
+          <label for="newIsland_name">Name</label>
+          <input type="text" id="newIsland_name" ng-model="newIslandName" />
+        </div>
+        <div class="col s7">
+          <label for="newIsland_desc">Description</label>
+          <textarea type="text" id="newIsland_desc" class="materialize-textarea" ng-model="newIslandDescription">
+          </textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s10">
+          <label>Destination</label>
+          <select class="browser-default" ng-model="newIslandDestinationKey">
+            <option ng-repeat="destination in destinations" value="{{destination.$id}}">{{destination.name}}</option>
+          </select>
+        </div>
+        <div class="col s2">
+          <button class="btn waves-effect waves-light" style="margin-top:50px;" ng-click="islands.$remove(island)">Add New</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

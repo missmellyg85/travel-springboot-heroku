@@ -1,0 +1,41 @@
+<div class="container">
+
+    <h2>Destinations Admin</h2>
+
+  <div class="row">
+    <div class="col s12">
+      <div ng-repeat="dest in destinations" class="row card-panel grey lighten-3">
+        <div class="col s4">
+          <label for="{{dest.name}}_name">Name</label>
+          <input type="text" id="{{dest.name}}_name" ng-model="dest.name" ng-change="destinations.$save(dest)" />
+        </div>
+        <div class="col s6">
+          <label for="{{dest.description}}_desc">Description</label>
+          <textarea id="{{dest.description}}_desc" class="materialize-textarea" ng-model="dest.description" ng-change="destinations.$save(dest)"></textarea>
+        </div>
+        <div class="col s2">
+          <button class="btn waves-effect waves-light" ng-click="destinations.$remove(dest)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="teal">
+  <div class="row card-panel grey lighten-3">
+    <form class="col s12" ng-submit="addDestination()">
+      <div class="row">
+        <div class="col s4">
+          <label for="newDest_name">Name</label>
+          <input type="text" id="newDest_name" ng-model="newDestinationName" />
+        </div>
+        <div class="col s6">
+          <label for="newDest_desc">Description</label>
+          <textarea type="text" id="newDest_desc" class="materialize-textarea" ng-model="newDestinationDescription">
+          </textarea>
+        </div>
+        <div class="col s2">
+          <button class="btn waves-effect waves-light" style="margin-top:50px;" ng-click="destinations.$remove(destination)">Add New</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
